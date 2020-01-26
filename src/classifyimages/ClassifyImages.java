@@ -5,6 +5,8 @@
  */
 package classifyimages;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Mahmoud
@@ -15,10 +17,15 @@ public class ClassifyImages {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      MainFrame m = new MainFrame();
+    /*  MainFrame m = new MainFrame();
       m.setVisible(true);
       m.setLocationRelativeTo(null);
-      m.setDefaultCloseOperation(1);
+      m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            */
+      Menu m = new Menu();
+      m.setVisible(true);
+      m.setLocationRelativeTo(null);
+      m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }
