@@ -24,7 +24,12 @@ import javax.swing.JOptionPane;
  * @author Mahmoud
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    // the index of the images
+    int pos = 0;
+    String imageName ;
+    Menu mu = new Menu();
+    Move mv = new Move();
+    DisplayImages dimg = new DisplayImages();
     /**
      * Creates new form MainFrame
      */
@@ -32,10 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         showImage(pos);
     }
-// the index of the images
-    int pos = 0;
-    String imageName ;
-
+   
 // get images list
     public String[] getImages()
     {
@@ -71,139 +73,7 @@ public class MainFrame extends javax.swing.JFrame {
        }
        showImage(pos);
     }
-    public void move_to_1()
-    {
-        try {
-            FileInputStream fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Bacterial_spot\\"+imageName);
-            BufferedInputStream bis=new BufferedInputStream(fio);
-            
-            FileOutputStream FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\1\\"+imageName);
-            BufferedOutputStream BOS= new BufferedOutputStream(FOS);
-            
-            byte[] buffer=new byte[10240];  // 10kb
-           int i= bis.read(buffer);
-          
-           
-           while( i != -1){
-             BOS.write(buffer, 0, i);
-             i= bis.read(buffer);  
-           }
-            
-           BOS.flush();
-        } catch (FileNotFoundException ex) {
-            //Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        } catch (IOException ex) {
-           // Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }
-    public void move_to_2()
-    {
-        try {
-            FileInputStream fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Bacterial_spot\\"+imageName);
-            BufferedInputStream bis=new BufferedInputStream(fio);
-            
-            FileOutputStream FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\2\\"+imageName);
-            BufferedOutputStream BOS= new BufferedOutputStream(FOS);
-            
-            byte[] buffer=new byte[10240];  // 10kb
-           int i= bis.read(buffer);
-          
-           
-           while( i != -1){
-             BOS.write(buffer, 0, i);
-             i= bis.read(buffer);  
-           }
-            
-           BOS.flush();
-        } catch (FileNotFoundException ex) {
-            //Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        } catch (IOException ex) {
-           // Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }
-    public void move_to_3(){
-         try {
-            FileInputStream fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Bacterial_spot\\"+imageName);
-            BufferedInputStream bis=new BufferedInputStream(fio);
-            
-            FileOutputStream FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\3\\"+imageName);
-            BufferedOutputStream BOS= new BufferedOutputStream(FOS);
-            
-            byte[] buffer=new byte[10240];  // 10kb
-           int i= bis.read(buffer);
-          
-           
-           while( i != -1){
-             BOS.write(buffer, 0, i);
-             i= bis.read(buffer);  
-           }
-            
-           BOS.flush();
-        } catch (FileNotFoundException ex) {
-            //Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        } catch (IOException ex) {
-           // Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }
-    public void move_to_4()
-    {
-        try {
-            FileInputStream fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Bacterial_spot\\"+imageName);
-            BufferedInputStream bis=new BufferedInputStream(fio);
-            
-            FileOutputStream FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\4\\"+imageName);
-            BufferedOutputStream BOS= new BufferedOutputStream(FOS);
-            
-            byte[] buffer=new byte[10240];  // 10kb
-           int i= bis.read(buffer);
-          
-           
-           while( i != -1){
-             BOS.write(buffer, 0, i);
-             i= bis.read(buffer);  
-           }
-            
-           BOS.flush();
-        } catch (FileNotFoundException ex) {
-            //Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        } catch (IOException ex) {
-           // Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }
-    public void move_to_5(){
-    try {
-            FileInputStream fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Bacterial_spot\\"+imageName);
-            BufferedInputStream bis=new BufferedInputStream(fio);
-            
-            FileOutputStream FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\5\\"+imageName);
-            BufferedOutputStream BOS= new BufferedOutputStream(FOS);
-            
-            byte[] buffer=new byte[10240];  // 10kb
-           int i= bis.read(buffer);
-          
-           
-           while( i != -1){
-             BOS.write(buffer, 0, i);
-             i= bis.read(buffer);  
-           }
-            
-           BOS.flush();
-        } catch (FileNotFoundException ex) {
-            //Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        } catch (IOException ex) {
-           // Logger.getLogger(TestIOStreams.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -652,6 +522,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton_5;
     private javax.swing.JButton jButton_next;
     private javax.swing.JButton jButton_prev;
-    private javax.swing.JLabel jLabel_image;
+    protected javax.swing.JLabel jLabel_image;
     // End of variables declaration//GEN-END:variables
 }
