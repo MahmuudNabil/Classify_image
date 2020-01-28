@@ -5,19 +5,9 @@
  */
 package classifyimages;
 
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,55 +15,26 @@ import javax.swing.JOptionPane;
  */
 public class MainFrame extends javax.swing.JFrame {
     // the index of the images
-    int pos = 0;
-    String imageName ;
-    Menu mu = new Menu();
-    Move mv = new Move();
-    DisplayImages dimg = new DisplayImages();
+    static int pos = 0;
+   Next_prev np = new Next_prev();
+   Move_1 m1 = new Move_1();
+   Move_2 m2 = new Move_2();
+   Move_3 m3 = new Move_3();
+   Move_4 m4 = new Move_4();
+   Move_5 m5 = new Move_5();
+   
+
+   
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
-        showImage(pos);
+        //showImage(pos);
+        Menu mu = new Menu();
     }
    
-// get images list
-    public String[] getImages()
-    {
-        File file = new File(getClass().getResource("/Tomato___Bacterial_spot/").getFile());
-        String[] imagesList = file.list();
-        return imagesList;
-    }
-// display the image by index
-    public void showImage(int index)
-    {
-        String[] imagesList = getImages();
-         imageName = imagesList[index];
-        ImageIcon icon = new ImageIcon(getClass().getResource("/Tomato___Bacterial_spot/"+imageName));
-        Image image = icon.getImage().getScaledInstance(jLabel_image.getWidth(), jLabel_image.getHeight(), Image.SCALE_SMOOTH);
-        jLabel_image.setIcon(new ImageIcon(image));
-    }
-    //function of turn image
-    public void turn_next()
-    {
-         pos = pos + 1;
-       if(pos >= getImages().length)
-       {
-           pos  = getImages().length - 1;
-       }
-       showImage(pos);
-    }
-    public void turn_prev()
-    {
-        pos = pos - 1;
-       if(pos < 0)
-       {
-           pos = 0;
-       }
-       showImage(pos);
-    }
-   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -248,135 +209,1017 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_prevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_prevActionPerformed
-       turn_prev();
-       this.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) { }
- 
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_LEFT)
-                 turn_next();
-            }
- 
-            @Override
-            public void keyReleased(KeyEvent e) { }
+       //Bacterial spot
+      if(Menu.btn == 1)
+      {
+         np.bacterial_spot_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.bacterial_spot_prev();
+         }
+         @Override
+         public void keyReleased(KeyEvent e) { }
         });
+      }
+        //Early blight
+      else if(Menu.btn == 2)
+      {
+         np.early_blight_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.early_blight_prev();
+         }
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+        //Late Blight
+      } else if(Menu.btn == 3)
+      {
+         np.late_blight_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.late_blight_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      } else if(Menu.btn == 4){
+         np.leaf_Mold_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.leaf_Mold_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 5){
+         np.septoria_leaf_spot_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.septoria_leaf_spot_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 6){
+         np.spider_mite_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.spider_mite_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 7){
+         np.target_spot_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.target_spot_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 8){
+         np.mosaic_virus_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.mosaic_virus_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 9){
+         np.yellow_curv_virus_prev();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.yellow_curv_virus_prev();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else ;
+      
     }//GEN-LAST:event_jButton_prevActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
-      
-       turn_next();
-       this.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) { }
- 
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                 turn_next();
-            }
- 
-            @Override
-            public void keyReleased(KeyEvent e) { }
+      //Bacterial spot
+      if(Menu.btn == 1)
+      {
+         np.bacterial_spot_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.bacterial_spot_next();
+         }
+         @Override
+         public void keyReleased(KeyEvent e) { }
         });
-       
+      }
+        //Early blight
+      else if(Menu.btn == 2)
+      {
+         np.early_blight_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.early_blight_next();
+         }
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+        //Late Blight
+      } else if(Menu.btn == 3)
+      {
+         np.late_blight_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.late_blight_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      } else if(Menu.btn == 4){
+         np.leaf_Mold_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.leaf_Mold_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 5){
+         np.septoria_leaf_spot_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.septoria_leaf_spot_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 6){
+         np.spider_mite_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.spider_mite_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 7){
+         np.target_spot_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.target_spot_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 8){
+         np.mosaic_virus_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.mosaic_virus_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else if(Menu.btn == 9){
+         np.yellow_curv_virus_next();
+        this.addKeyListener(new KeyListener() {
+         @Override
+         public void keyTyped(KeyEvent e) { }
+
+         @Override
+         public void keyPressed(KeyEvent e) {
+             if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+              np.yellow_curv_virus_next();
+         }
+
+         @Override
+         public void keyReleased(KeyEvent e) { }
+        });
+      }else ;
     }//GEN-LAST:event_jButton_nextActionPerformed
 
     private void jButton_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_1ActionPerformed
-
-         move_to_1();
-       this.addKeyListener(new KeyListener() {
+        if(Menu.btn == 1){
+            m1.moveBacterial_spot();
+            this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
-                 move_to_1();
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m1.moveBacterial_spot(); 
             }
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
-        
+            });
+        }else if (Menu.btn == 2){
+            m1.moveEarly_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m1.moveEarly_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 3){
+            m1.moveLate_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m1.moveLate_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 4){
+            m1.moveLeaf_mold();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m1.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 5){
+            m1.moveSeptoria_leaf_spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m1.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 6){
+            m1.moveSpider_mites();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m1.moveSpider_mites();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 7){
+            m1.moveTarget_Spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m1.moveTarget_Spot();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 8){
+            m1.moveMosaic_virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m1.moveMosaic_virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 9){
+            m1.moveYellow_Leaf_Curl_Virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m1.moveYellow_Leaf_Curl_Virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else ;     
     }//GEN-LAST:event_jButton_1ActionPerformed
 
     private void jButton_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_2ActionPerformed
-          move_to_2();
-       this.addKeyListener(new KeyListener() {
+        if(Menu.btn == 1){
+            m2.moveBacterial_spot();
+            this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
-                 move_to_2();
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m2.moveBacterial_spot(); 
             }
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+            });
+        }else if (Menu.btn == 2){
+            m2.moveEarly_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m2.moveEarly_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 3){
+            m2.moveLate_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m2.moveLate_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 4){
+            m2.moveLeaf_mold();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m2.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 5){
+            m2.moveSeptoria_leaf_spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m2.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 6){
+            m2.moveSpider_mites();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m2.moveSpider_mites();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 7){
+            m2.moveTarget_Spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m2.moveTarget_Spot();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 8){
+            m2.moveMosaic_virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m2.moveMosaic_virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 9){
+            m2.moveYellow_Leaf_Curl_Virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m2.moveYellow_Leaf_Curl_Virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else ;
+        
     }//GEN-LAST:event_jButton_2ActionPerformed
 
     private void jButton_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_3ActionPerformed
-       
-          move_to_3();
-       this.addKeyListener(new KeyListener() {
+         if(Menu.btn == 1){
+            m3.moveBacterial_spot();
+            this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
-                 move_to_3();
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m3.moveBacterial_spot(); 
             }
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+            });
+        }else if (Menu.btn == 2){
+            m3.moveEarly_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m3.moveEarly_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 3){
+            m3.moveLate_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m3.moveLate_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 4){
+            m3.moveLeaf_mold();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m3.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 5){
+            m3.moveSeptoria_leaf_spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m3.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 6){
+            m3.moveSpider_mites();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m3.moveSpider_mites();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 7){
+            m3.moveTarget_Spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m3.moveTarget_Spot();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 8){
+            m3.moveMosaic_virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m3.moveMosaic_virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 9){
+            m3.moveYellow_Leaf_Curl_Virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m3.moveYellow_Leaf_Curl_Virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else ;
+        
     }//GEN-LAST:event_jButton_3ActionPerformed
 
     private void jButton_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_4ActionPerformed
-        
-        move_to_4();
-       this.addKeyListener(new KeyListener() {
+        if(Menu.btn == 1){
+            m4.moveBacterial_spot();
+            this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
-                 move_to_4();
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m4.moveBacterial_spot(); 
             }
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+            });
+        }else if (Menu.btn == 2){
+            m4.moveEarly_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m4.moveEarly_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 3){
+            m4.moveLate_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m4.moveLate_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 4){
+            m4.moveLeaf_mold();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m4.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 5){
+            m4.moveSeptoria_leaf_spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m4.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 6){
+            m4.moveSpider_mites();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m4.moveSpider_mites();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 7){
+            m4.moveTarget_Spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m4.moveTarget_Spot();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 8){
+            m4.moveMosaic_virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m4.moveMosaic_virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 9){
+            m4.moveYellow_Leaf_Curl_Virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m4.moveYellow_Leaf_Curl_Virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else ; 
     }//GEN-LAST:event_jButton_4ActionPerformed
 
     private void jButton_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_5ActionPerformed
-        
-         move_to_5();
-       this.addKeyListener(new KeyListener() {
+        if(Menu.btn == 1){
+            m5.moveBacterial_spot();
+            this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
-                 move_to_5();
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m5.moveBacterial_spot(); 
             }
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+            });
+        }else if (Menu.btn == 2){
+            m5.moveEarly_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m5.moveEarly_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 3){
+            m5.moveLate_blight();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m5.moveLate_blight();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 4){
+            m5.moveLeaf_mold();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m5.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 5){
+            m5.moveSeptoria_leaf_spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                    m5.moveLeaf_mold();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 6){
+            m5.moveSpider_mites();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m5.moveSpider_mites();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 7){
+            m5.moveTarget_Spot();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m5.moveTarget_Spot();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 8){
+            m5.moveMosaic_virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m5.moveMosaic_virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else if (Menu.btn == 9){
+            m5.moveYellow_Leaf_Curl_Virus();
+            this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+ 
+            @Override
+            public void keyPressed(KeyEvent e) {
+               if(e.getKeyCode() == KeyEvent.VK_NUMPAD1)
+                     m5.moveYellow_Leaf_Curl_Virus();
+            }
+ 
+            @Override
+            public void keyReleased(KeyEvent e) { }
+            });
+        }else ;
+        
     }//GEN-LAST:event_jButton_5ActionPerformed
 
     private void jButton_nextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_nextKeyPressed
 
        if(evt.getKeyCode() == KeyEvent.VK_RIGHT)
-            turn_next(); 
+       {
+           if(Menu.btn ==1)
+               np.bacterial_spot_next();
+           else if (Menu.btn == 2)
+               np.early_blight_next();
+           else if (Menu.btn == 3)
+               np.late_blight_next();
+           else if (Menu.btn == 4)
+               np.leaf_Mold_next();
+           else if (Menu.btn == 5)
+               np.septoria_leaf_spot_next();
+           else if (Menu.btn == 6)
+               np.spider_mite_next();
+           else if (Menu.btn == 7)
+               np.target_spot_next();
+           else if (Menu.btn == 8)
+               np.mosaic_virus_next();
+           else if (Menu.btn == 9)
+               np.yellow_curv_virus_next();
+           else ;
+       }
+            
     }//GEN-LAST:event_jButton_nextKeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -389,11 +1232,31 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton_prevKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_prevKeyPressed
        if(evt.getKeyCode() == KeyEvent.VK_LEFT)
-        turn_prev();
+       {
+           if(Menu.btn ==1)
+               np.bacterial_spot_prev();
+           else if (Menu.btn == 2)
+               np.early_blight_prev();
+           else if (Menu.btn == 3)
+               np.late_blight_prev();
+           else if (Menu.btn == 4)
+               np.leaf_Mold_next();
+           else if (Menu.btn == 5)
+               np.septoria_leaf_spot_prev();
+           else if (Menu.btn == 6)
+               np.spider_mite_prev();
+           else if (Menu.btn == 7)
+               np.target_spot_prev();
+           else if (Menu.btn == 8)
+               np.mosaic_virus_prev();
+           else if (Menu.btn == 9)
+               np.yellow_curv_virus_prev();
+           else ;
+       }
     }//GEN-LAST:event_jButton_prevKeyPressed
 
     private void jButton_1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_1KeyPressed
-        move_to_1();
+      /*  move_to_1();
        this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
@@ -406,11 +1269,11 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+        }); */
     }//GEN-LAST:event_jButton_1KeyPressed
 
     private void jButton_2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_2KeyPressed
-        move_to_2();
+       /* move_to_2();
        this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
@@ -423,11 +1286,11 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+        }); */
     }//GEN-LAST:event_jButton_2KeyPressed
 
     private void jButton_3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_3KeyPressed
-        move_to_3();
+       /* move_to_3();
        this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
@@ -440,11 +1303,11 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+        }); */ 
     }//GEN-LAST:event_jButton_3KeyPressed
 
     private void jButton_4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_4KeyPressed
-       move_to_4();
+     /*  move_to_4();
        this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
@@ -457,11 +1320,11 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+        }); */ 
     }//GEN-LAST:event_jButton_4KeyPressed
 
     private void jButton_5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_5KeyPressed
-        move_to_5();
+      /*  move_to_5();
        this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
@@ -474,7 +1337,7 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-        });
+        }); */ 
     }//GEN-LAST:event_jButton_5KeyPressed
 
     /**
@@ -522,6 +1385,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton_5;
     private javax.swing.JButton jButton_next;
     private javax.swing.JButton jButton_prev;
-    protected javax.swing.JLabel jLabel_image;
+    public static javax.swing.JLabel jLabel_image;
     // End of variables declaration//GEN-END:variables
 }

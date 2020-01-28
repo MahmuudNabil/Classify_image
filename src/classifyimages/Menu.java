@@ -16,16 +16,23 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    
+   
     public Menu() {
         initComponents();
     }
+     static int btn;
+    DisplayImages dimg = new DisplayImages();
+    
+    
 public void display_mainFrame()
 {
-     MainFrame m = new MainFrame();
+      MainFrame m = new MainFrame();
       m.setVisible(true);
       m.setLocationRelativeTo(null);
       m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,39 +183,57 @@ public void display_mainFrame()
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        btn=5;
         display_mainFrame();
+        dimg.showSeptoria_leaf_spot(MainFrame.pos); 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     btn=1;
      display_mainFrame();
+     dimg.showBacterial_spot(MainFrame.pos);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       btn=2;
        display_mainFrame();
+       dimg.showEarly_blight(MainFrame.pos); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        btn=3;
         display_mainFrame();
+        dimg.showLate_blight(MainFrame.pos); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        btn=4;
         display_mainFrame();
+        dimg.showLeaf_Mold(MainFrame.pos);    
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        btn=6;
         display_mainFrame();
+        dimg.showSeptoria_leaf_spot(MainFrame.pos);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        btn= 7;
         display_mainFrame();
+        dimg.showTarget_Spot(MainFrame.pos);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        btn = 8 ;
         display_mainFrame();
+        dimg.showTomato_mosaic_virus(MainFrame.pos);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        btn=9;
         display_mainFrame();
+        dimg.showYellow_Leaf_Curl_Virus(MainFrame.pos);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
