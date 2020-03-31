@@ -67,7 +67,7 @@ public class DisplayImages {
           icon = new ImageIcon(getClass().getClassLoader().getResource("Tomato___Early_blight/"+imageName));
           image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
-        // MainFrame.jLabel1.setText("Tomato___Early_blight/"+imageName);
+         MainFrame.jLabel1.setText("Tomato___Early_blight/"+imageName);
      }
     
       // disease Late_blight

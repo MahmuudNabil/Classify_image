@@ -28,7 +28,7 @@ public class Move_2 {
     public void moveBacterial_spot()
         {
          try {
-             fio=new FileInputStream("res\\Tomato___Bacterial_spot\\"+DisplayImages.imageName);
+             fio=new FileInputStream("src\\Tomato___Bacterial_spot\\"+DisplayImages.imageName);
              bis=new BufferedInputStream(fio);
             
              FOS=new FileOutputStream("D:\\class_image\\Tomato___Bacterial_spot\\2\\"+DisplayImages.imageName);
@@ -55,7 +55,7 @@ public class Move_2 {
     public void moveEarly_blight()
         {
             try {
-                 fio=new FileInputStream("res\\Tomato___Early_blight\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Early_blight\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
                  FOS=new FileOutputStream("D:\\class_image\\Tomato___Early_blight\\2\\"+DisplayImages.imageName);

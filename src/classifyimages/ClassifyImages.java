@@ -18,22 +18,16 @@ public class ClassifyImages {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    /*  MainFrame m = new MainFrame();
-      m.setVisible(true);
-      m.setLocationRelativeTo(null);
-      m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         */
-       /*    
       Menu m = new Menu();
       m.setVisible(true);
       m.setLocationRelativeTo(null);
       m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      */ 
+       /*  
         Welcome w =new Welcome();
         w.setVisible(true);
       w.setLocationRelativeTo(null);
       w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      
+      */
       
              
     }
