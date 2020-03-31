@@ -7,6 +7,9 @@ package classifyimages;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -54,6 +57,8 @@ public class MainFrame extends javax.swing.JFrame {
         jButton_4 = new javax.swing.JButton();
         jButton_5 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -150,9 +155,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 0));
+        jButton2.setBackground(new java.awt.Color(0, 204, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 153, 255));
         jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,49 +164,67 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(204, 255, 255));
+        jButton3.setText("help");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_image, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(jButton_prev, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jButton_1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton_prev, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_prev, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(16, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))))
+                        .addComponent(jButton_1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_prev, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -212,25 +234,34 @@ public class MainFrame extends javax.swing.JFrame {
        //Bacterial spot
       if(Menu.btn == 1)
       {
-         np.bacterial_spot_prev();
-        this.addKeyListener(new KeyListener() {
+          try {
+              np.bacterial_spot_prev();
+          } catch (IOException ex) {
+              Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+          }
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
          @Override
          public void keyPressed(KeyEvent e) {
              if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-              np.bacterial_spot_prev();
+              try {
+                  np.bacterial_spot_prev();
+             } catch (IOException ex) {
+                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+             }
          }
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }
+
         //Early blight
       else if(Menu.btn == 2)
       {
          np.early_blight_prev();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -241,12 +272,12 @@ public class MainFrame extends javax.swing.JFrame {
          }
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
         //Late Blight
       } else if(Menu.btn == 3)
       {
          np.late_blight_prev();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -258,10 +289,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        });*/
       } else if(Menu.btn == 4){
          np.leaf_Mold_prev();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -273,10 +304,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        });*/
       }else if(Menu.btn == 5){
          np.septoria_leaf_spot_prev();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -288,10 +319,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 6){
          np.spider_mite_prev();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -303,10 +334,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 7){
          np.target_spot_prev();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -318,10 +349,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 8){
          np.mosaic_virus_prev();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -333,10 +364,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 9){
          np.yellow_curv_virus_prev();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -348,34 +379,43 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else ;
-      
+ 
     }//GEN-LAST:event_jButton_prevActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
       //Bacterial spot
       if(Menu.btn == 1)
       {
-         np.bacterial_spot_next();
-        this.addKeyListener(new KeyListener() {
+          try {
+              np.bacterial_spot_next();
+          } catch (IOException ex) {
+              Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
          @Override
          public void keyPressed(KeyEvent e) {
              if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-              np.bacterial_spot_next();
+              try {
+                  np.bacterial_spot_next();
+             } catch (IOException ex) {
+                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+             }
          }
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }
+ 
         //Early blight
       else if(Menu.btn == 2)
       {
          np.early_blight_next();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -386,12 +426,12 @@ public class MainFrame extends javax.swing.JFrame {
          }
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
         //Late Blight
       } else if(Menu.btn == 3)
       {
          np.late_blight_next();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -403,10 +443,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       } else if(Menu.btn == 4){
          np.leaf_Mold_next();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -418,10 +458,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 5){
          np.septoria_leaf_spot_next();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -433,10 +473,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        });  */
       }else if(Menu.btn == 6){
          np.spider_mite_next();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -448,10 +488,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 7){
          np.target_spot_next();
-        this.addKeyListener(new KeyListener() {
+        /*this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -463,10 +503,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 8){
          np.mosaic_virus_next();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -478,10 +518,10 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else if(Menu.btn == 9){
          np.yellow_curv_virus_next();
-        this.addKeyListener(new KeyListener() {
+       /* this.addKeyListener(new KeyListener() {
          @Override
          public void keyTyped(KeyEvent e) { }
 
@@ -493,14 +533,15 @@ public class MainFrame extends javax.swing.JFrame {
 
          @Override
          public void keyReleased(KeyEvent e) { }
-        });
+        }); */
       }else ;
+   
     }//GEN-LAST:event_jButton_nextActionPerformed
 
     private void jButton_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_1ActionPerformed
         if(Menu.btn == 1){
             m1.moveBacterial_spot();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -512,10 +553,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
-        }else if (Menu.btn == 2){
+            }); */
+            }else if (Menu.btn == 2){
             m1.moveEarly_blight();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -527,10 +568,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 3){
             m1.moveLate_blight();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -542,10 +583,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 4){
             m1.moveLeaf_mold();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -557,10 +598,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 5){
             m1.moveSeptoria_leaf_spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -572,10 +613,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 6){
             m1.moveSpider_mites();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -587,10 +628,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 7){
             m1.moveTarget_Spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -602,10 +643,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 8){
             m1.moveMosaic_virus();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -617,10 +658,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 9){
             m1.moveYellow_Leaf_Curl_Virus();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -632,14 +673,15 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
-        }else ;     
+            }); */
+        }else ;  
+ 
     }//GEN-LAST:event_jButton_1ActionPerformed
 
     private void jButton_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_2ActionPerformed
         if(Menu.btn == 1){
             m2.moveBacterial_spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -651,10 +693,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
-        }else if (Menu.btn == 2){
+            }); */
+        } else if (Menu.btn == 2){
             m2.moveEarly_blight();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -666,10 +708,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 3){
             m2.moveLate_blight();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -681,10 +723,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 4){
             m2.moveLeaf_mold();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -696,10 +738,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 5){
             m2.moveSeptoria_leaf_spot();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -711,10 +753,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 6){
             m2.moveSpider_mites();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -726,10 +768,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 7){
             m2.moveTarget_Spot();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -741,10 +783,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 8){
             m2.moveMosaic_virus();
-            this.addKeyListener(new KeyListener() {
+          /*  this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -756,10 +798,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 9){
             m2.moveYellow_Leaf_Curl_Virus();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -771,7 +813,7 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else ;
         
     }//GEN-LAST:event_jButton_2ActionPerformed
@@ -779,7 +821,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_3ActionPerformed
          if(Menu.btn == 1){
             m3.moveBacterial_spot();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -791,10 +833,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
-        }else if (Menu.btn == 2){
+            }); */
+        }  else if (Menu.btn == 2){
             m3.moveEarly_blight();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -806,10 +848,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 3){
             m3.moveLate_blight();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -821,10 +863,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 4){
             m3.moveLeaf_mold();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -836,10 +878,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 5){
             m3.moveSeptoria_leaf_spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -851,10 +893,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 6){
             m3.moveSpider_mites();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -866,10 +908,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            });  */
         }else if (Menu.btn == 7){
             m3.moveTarget_Spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -881,10 +923,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 8){
             m3.moveMosaic_virus();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -896,10 +938,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 9){
             m3.moveYellow_Leaf_Curl_Virus();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -911,15 +953,15 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else ;
-        
+       
     }//GEN-LAST:event_jButton_3ActionPerformed
 
     private void jButton_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_4ActionPerformed
         if(Menu.btn == 1){
             m4.moveBacterial_spot();
-            this.addKeyListener(new KeyListener() {
+          /*  this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -931,10 +973,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 2){
             m4.moveEarly_blight();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -946,10 +988,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 3){
             m4.moveLate_blight();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -961,10 +1003,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 4){
             m4.moveLeaf_mold();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -976,10 +1018,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 5){
             m4.moveSeptoria_leaf_spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -991,10 +1033,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 6){
             m4.moveSpider_mites();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1006,10 +1048,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 7){
             m4.moveTarget_Spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1021,10 +1063,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 8){
             m4.moveMosaic_virus();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1036,10 +1078,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            });*/
         }else if (Menu.btn == 9){
             m4.moveYellow_Leaf_Curl_Virus();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1051,14 +1093,15 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
-        }else ; 
+            }); */
+        }else ;
+        
     }//GEN-LAST:event_jButton_4ActionPerformed
 
     private void jButton_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_5ActionPerformed
         if(Menu.btn == 1){
             m5.moveBacterial_spot();
-            this.addKeyListener(new KeyListener() {
+          /*  this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1070,10 +1113,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 2){
             m5.moveEarly_blight();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1085,10 +1128,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            });*/
         }else if (Menu.btn == 3){
             m5.moveLate_blight();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1100,10 +1143,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            });*/
         }else if (Menu.btn == 4){
             m5.moveLeaf_mold();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1115,10 +1158,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 5){
             m5.moveSeptoria_leaf_spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1130,10 +1173,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 6){
             m5.moveSpider_mites();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1145,10 +1188,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 7){
             m5.moveTarget_Spot();
-            this.addKeyListener(new KeyListener() {
+            /*this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1160,10 +1203,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 8){
             m5.moveMosaic_virus();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1175,10 +1218,10 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else if (Menu.btn == 9){
             m5.moveYellow_Leaf_Curl_Virus();
-            this.addKeyListener(new KeyListener() {
+           /* this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) { }
  
@@ -1190,9 +1233,9 @@ public class MainFrame extends javax.swing.JFrame {
  
             @Override
             public void keyReleased(KeyEvent e) { }
-            });
+            }); */
         }else ;
-        
+    
     }//GEN-LAST:event_jButton_5ActionPerformed
 
     private void jButton_nextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton_nextKeyPressed
@@ -1200,7 +1243,12 @@ public class MainFrame extends javax.swing.JFrame {
        if(evt.getKeyCode() == KeyEvent.VK_RIGHT)
        {
            if(Menu.btn ==1)
-               np.bacterial_spot_next();
+               try {
+                   np.bacterial_spot_next();
+           } catch (IOException ex) {
+               Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
+
            else if (Menu.btn == 2)
                np.early_blight_next();
            else if (Menu.btn == 3)
@@ -1218,6 +1266,7 @@ public class MainFrame extends javax.swing.JFrame {
            else if (Menu.btn == 9)
                np.yellow_curv_virus_next();
            else ;
+          
        }
             
     }//GEN-LAST:event_jButton_nextKeyPressed
@@ -1234,7 +1283,12 @@ public class MainFrame extends javax.swing.JFrame {
        if(evt.getKeyCode() == KeyEvent.VK_LEFT)
        {
            if(Menu.btn ==1)
-               np.bacterial_spot_prev();
+               try {
+                   np.bacterial_spot_prev();
+           } catch (IOException ex) {
+               Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
+
            else if (Menu.btn == 2)
                np.early_blight_prev();
            else if (Menu.btn == 3)
@@ -1252,6 +1306,7 @@ public class MainFrame extends javax.swing.JFrame {
            else if (Menu.btn == 9)
                np.yellow_curv_virus_prev();
            else ;
+ 
        }
     }//GEN-LAST:event_jButton_prevKeyPressed
 
@@ -1340,6 +1395,14 @@ public class MainFrame extends javax.swing.JFrame {
         }); */ 
     }//GEN-LAST:event_jButton_5KeyPressed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       this.dispose();
+       Welcome w = new Welcome();
+       w.setVisible(true);
+       w.setDefaultCloseOperation(EXIT_ON_CLOSE);
+       w.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1378,6 +1441,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton_1;
     private javax.swing.JButton jButton_2;
     private javax.swing.JButton jButton_3;
@@ -1385,6 +1449,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton_5;
     private javax.swing.JButton jButton_next;
     private javax.swing.JButton jButton_prev;
+    public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel_image;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package classifyimages;
 
 import static classifyimages.MainFrame.pos;
+import java.io.IOException;
 
 /**
  *
@@ -14,7 +15,7 @@ import static classifyimages.MainFrame.pos;
 public class Next_prev {
     DisplayImages dimg =new DisplayImages();
     
-   public void bacterial_spot_next()
+   public void bacterial_spot_next() throws IOException
     {
          pos = pos + 1;
        if(pos >= dimg.getBacterial_spot().length)
@@ -23,7 +24,7 @@ public class Next_prev {
        }
        dimg.showBacterial_spot(pos);
     }
-    public void bacterial_spot_prev()
+    public void bacterial_spot_prev() throws IOException
     {
         pos = pos - 1;
        if(pos < 0)
@@ -99,9 +100,9 @@ public class Next_prev {
     public void septoria_leaf_spot_next()
     {
          pos = pos + 1;
-       if(pos >= dimg.getLeaf_Mold().length)
+       if(pos >= dimg.getSeptoria_leaf_spot().length)
        {
-           pos  = dimg.getLeaf_Mold().length - 1;
+           pos  = dimg.getSeptoria_leaf_spot().length - 1;
        }
        dimg.showSeptoria_leaf_spot(pos);
     }
@@ -119,9 +120,9 @@ public class Next_prev {
      public void spider_mite_next()
     {
          pos = pos + 1;
-       if(pos >= dimg.getLeaf_Mold().length)
+       if(pos >= dimg.getSpider_mites().length)
        {
-           pos  = dimg.getLeaf_Mold().length - 1;
+           pos  = dimg.getSpider_mites().length - 1;
        }
        dimg.showSpider_mites(pos);
     }
@@ -139,9 +140,9 @@ public class Next_prev {
     public void target_spot_next()
     {
          pos = pos + 1;
-       if(pos >= dimg.getLeaf_Mold().length)
+       if(pos >= dimg.getTarget_Spot().length)
        {
-           pos  = dimg.getLeaf_Mold().length - 1;
+           pos  = dimg.getTarget_Spot().length - 1;
        }
        dimg.showTarget_Spot(pos);
     }
@@ -159,9 +160,9 @@ public class Next_prev {
     public void mosaic_virus_next()
     {
          pos = pos + 1;
-       if(pos >= dimg.getLeaf_Mold().length)
+       if(pos >= dimg.getTomato_mosaic_virus().length)
        {
-           pos  = dimg.getLeaf_Mold().length - 1;
+           pos  = dimg.getTomato_mosaic_virus().length - 1;
        }
        dimg.showTomato_mosaic_virus(pos);
     }
@@ -179,9 +180,9 @@ public class Next_prev {
     public void yellow_curv_virus_next()
     {
          pos = pos + 1;
-       if(pos >= dimg.getLeaf_Mold().length)
+       if(pos >= dimg.getYellow_Leaf_Curl_Virus().length)
        {
-           pos  = dimg.getLeaf_Mold().length - 1;
+           pos  = dimg.getYellow_Leaf_Curl_Virus().length - 1;
        }
        dimg.showYellow_Leaf_Curl_Virus(pos);
     }

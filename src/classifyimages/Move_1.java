@@ -28,10 +28,10 @@ public class Move_1 {
     public void moveBacterial_spot()
         {
          try {
-             fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Bacterial_spot\\"+DisplayImages.imageName);
+             fio=new FileInputStream("res\\Tomato___Bacterial_spot\\"+DisplayImages.imageName);
              bis=new BufferedInputStream(fio);
             
-             FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Bacterial_spot\\1\\"+DisplayImages.imageName);
+             FOS=new FileOutputStream("D:\\class_image\\Tomato___Bacterial_spot\\1\\"+DisplayImages.imageName);
              BOS= new BufferedOutputStream(FOS);
             
              buffer=new byte[10240];  // 10kb
@@ -50,14 +50,15 @@ public class Move_1 {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 }
+    
     //Early_blight
     public void moveEarly_blight()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Early_blight\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("res\\Tomato___Early_blight\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Early_blight\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Early_blight\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb
@@ -84,10 +85,10 @@ public class Move_1 {
         public void moveLate_blight()
     {
         try {
-             fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Late_blight\\"+DisplayImages.imageName);
+             fio=new FileInputStream("src\\Tomato___Late_blight\\"+DisplayImages.imageName);
              bis=new BufferedInputStream(fio);
             
-             FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Late_blight\\1\\"+DisplayImages.imageName);
+             FOS=new FileOutputStream("D:\\class_image\\Tomato___Late_blight\\1\\"+DisplayImages.imageName);
              BOS= new BufferedOutputStream(FOS);
             
              buffer=new byte[10240];  // 10kb
@@ -112,10 +113,10 @@ public class Move_1 {
          public void moveLeaf_mold()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Leaf_Mold\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Leaf_Mold\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Leaf_Mold\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Leaf_Mold\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb
@@ -140,10 +141,10 @@ public class Move_1 {
          public void moveSeptoria_leaf_spot()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Septoria_leaf_spot\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Septoria_leaf_spot\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Septoria_leaf_spot\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Septoria_leaf_spot\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb
@@ -169,10 +170,10 @@ public class Move_1 {
          public void moveSpider_mites()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Spider_mites_two_spotted_spider_mite\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Spider_mites_two_spotted_spider_mite\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Spider_mites_two_spotted_spider_mite\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Spider_mites_two_spotted_spider_mite\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb
@@ -199,10 +200,10 @@ public class Move_1 {
          public void moveTarget_Spot()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Target_Spot\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Target_Spot\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Target_Spot\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Target_Spot\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb
@@ -228,10 +229,10 @@ public class Move_1 {
          public void moveMosaic_virus()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Tomato_mosaic_virus\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Tomato_mosaic_virus\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Tomato_mosaic_virus\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Tomato_mosaic_virus\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb
@@ -257,10 +258,10 @@ public class Move_1 {
          public void moveYellow_Leaf_Curl_Virus()
         {
             try {
-                 fio=new FileInputStream("C:\\Users\\Mahmoud\\Desktop\\ClassifyImages\\src\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\"+DisplayImages.imageName);
+                 fio=new FileInputStream("src\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\"+DisplayImages.imageName);
                  bis=new BufferedInputStream(fio);
 
-                 FOS=new FileOutputStream("C:\\Users\\Mahmoud\\Desktop\\class_image\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\1\\"+DisplayImages.imageName);
+                 FOS=new FileOutputStream("D:\\class_image\\Tomato___Tomato_Yellow_Leaf_Curl_Virus\\1\\"+DisplayImages.imageName);
                  BOS= new BufferedOutputStream(FOS);
 
                  buffer=new byte[10240];  // 10kb

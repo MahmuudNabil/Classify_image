@@ -5,6 +5,9 @@
  */
 package classifyimages;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -191,7 +194,11 @@ public void display_mainFrame()
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      btn=1;
      display_mainFrame();
-     dimg.showBacterial_spot(MainFrame.pos);
+        try {  
+            dimg.showBacterial_spot(MainFrame.pos);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -215,7 +222,7 @@ public void display_mainFrame()
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         btn=6;
         display_mainFrame();
-        dimg.showSeptoria_leaf_spot(MainFrame.pos);
+        dimg.showSpider_mites(MainFrame.pos);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
