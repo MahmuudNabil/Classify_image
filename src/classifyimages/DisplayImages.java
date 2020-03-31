@@ -7,7 +7,12 @@ package classifyimages;
 
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+
+
 
 /**
  *
@@ -15,34 +20,43 @@ import javax.swing.ImageIcon;
  */
 public class DisplayImages {
     static String imageName ;
+   // static byte imageName  ; //test 
     File file;
     String[] imagesList;
+    byte[] x;   // test
     ImageIcon icon;
     Image image;
     
+    
         //disease Bacterial_spot    
          // get images list
-     public String[] getBacterial_spot()
-     {
-          file = new File(getClass().getResource("/Tomato___Bacterial_spot/").getFile());
+    public  String[] getBacterial_spot() throws IOException {
+        file = new File(getClass().getClassLoader().getResource("Tomato___Bacterial_spot").getFile());
+        System.out.println("File "+ file);
           imagesList = file.list();
+          System.out.println("imageslist"+imagesList);
          return imagesList;
-     }
+    }
+    
      // display the image by index
-     public void showBacterial_spot(int index)
+     public void showBacterial_spot(int index) throws IOException
      {
           imagesList = getBacterial_spot();
+          try{
           imageName = imagesList[index];
-          icon = new ImageIcon(getClass().getResource("/Tomato___Bacterial_spot/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
-          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+          }catch(Exception e){JOptionPane.showMessageDialog(null, e.getMessage());}
+          icon = new ImageIcon(getClass().getClassLoader().getResource("Tomato___Bacterial_spot/"+imageName));
+          image = icon.getImage();
+          MainFrame.jLabel_image.setIcon(new ImageIcon(image) );
+          MainFrame.jLabel1.setText("Tomato___Bacterial_spot/"+imageName);
      }
 
       // disease Early_blight
       public String[] getEarly_blight()
      {
-          file = new File(getClass().getResource("/Tomato___Early_blight/").getFile());
+          file = new File(getClass().getClassLoader().getResource("Tomato___Early_blight/").getFile());
           imagesList = file.list();
+          //System.out.println(imagesList);
          return imagesList;
      }
          // display the image by index
@@ -50,9 +64,10 @@ public class DisplayImages {
      {
          imagesList = getEarly_blight();
           imageName = imagesList[index];
-          icon = new ImageIcon(getClass().getResource("/Tomato___Early_blight/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          icon = new ImageIcon(getClass().getClassLoader().getResource("Tomato___Early_blight/"+imageName));
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+        // MainFrame.jLabel1.setText("Tomato___Early_blight/"+imageName);
      }
     
       // disease Late_blight
@@ -68,8 +83,9 @@ public class DisplayImages {
           imagesList = getLate_blight();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Late_blight/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+         MainFrame.jLabel1.setText("/Tomato___Late_blight/"+imageName);
      }
      
       // disease Leaf_Mold
@@ -85,8 +101,9 @@ public class DisplayImages {
           imagesList = getLeaf_Mold();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Leaf_Mold/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+         MainFrame.jLabel1.setText("/Tomato___Leaf_Mold/"+imageName);
      }
      
       // disease Septoria_leaf_spot
@@ -102,8 +119,9 @@ public class DisplayImages {
           imagesList =  getSeptoria_leaf_spot();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Septoria_leaf_spot/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+         MainFrame.jLabel1.setText("/Tomato___Septoria_leaf_spot/"+imageName);
      }
      
 
@@ -120,8 +138,9 @@ public class DisplayImages {
           imagesList = getSpider_mites();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Spider_mites_two_spotted_spider_mite/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+         MainFrame.jLabel1.setText("/Tomato___Spider_mites_two_spotted_spider_mite/"+imageName);
      }
       
      // disease Target_Spot
@@ -137,8 +156,9 @@ public class DisplayImages {
           imagesList = getTarget_Spot();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Target_Spot/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+         MainFrame.jLabel1.setText("/Tomato___Target_Spot/"+imageName);
      }
      
      // disease Tomato_mosaic_virus
@@ -154,8 +174,9 @@ public class DisplayImages {
           imagesList = getTomato_mosaic_virus();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Tomato_mosaic_virus/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
          MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+         MainFrame.jLabel1.setText("/Tomato___Tomato_mosaic_virus/"+imageName);
      }
      
      // disease Tomato_Yellow_Leaf_Curl_Virus
@@ -171,9 +192,18 @@ public class DisplayImages {
           imagesList = getYellow_Leaf_Curl_Virus();
           imageName = imagesList[index];
           icon = new ImageIcon(getClass().getResource("/Tomato___Tomato_Yellow_Leaf_Curl_Virus/"+imageName));
-          image = icon.getImage().getScaledInstance(MainFrame.jLabel_image.getWidth(), MainFrame.jLabel_image.getHeight(), Image.SCALE_SMOOTH);
+          image = icon.getImage();
           MainFrame.jLabel_image.setIcon(new ImageIcon(image));
+          MainFrame.jLabel1.setText("/Tomato___Tomato_Yellow_Leaf_Curl_Virus/"+imageName);
      }
+
+    private String[] String(int read) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private byte[] toByteArrayAutoClosable(Image image, String png) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
       
     
 
